@@ -6,6 +6,8 @@ public class Name {
         this.first =firstName;
         this.last = lastName;
     }
+
+
     String informalRepresentation() {
         return first + " " + last;
     }

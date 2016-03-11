@@ -1,33 +1,24 @@
 public class Person {
     private Name name;
 
-    private int age;
+    private static String age;
 
     private Address address;
 
-    private Gender gender;
+    private String gender;
 
-    public Person( Name name,Gender gender, int age, Address address) {
+    public Person(Name name, String gender, String age, Address address) {
         this.name = name;
         this.gender = gender;
         this.age = age;
         this.address = address;
     }
 
-    private String invitationCreater(String fullname) {
-        String invitationTemplate = "title fullname, country";
-        return invitationTemplate
-                .replace("title", gender.getTitle())
-                .replace("fullname", fullname)
-                .replace("country", address.getCountry());
+    public  String represent(String option) {
+        return address.addCountryName(name.informalRepresentation()+ age);
+    }
+    public static boolean isAbleToConsumeAlcohol(int legalAge){
+        return  Integer.parseInt(age) >= legalAge;
     }
 
-    public String informallyInvited() {
-        return invitationCreater(name.informalRepresentation());
-    }
-
-    public String formallyInvited() {
-        System.out.println(gender);
-        return invitationCreater(name.formalRepresentation());
-    }
 }
